@@ -64,8 +64,7 @@ app.post('/api/books', (req, res) => {
   const url = "https://www.googleapis.com/books/v1/volumes?q="+ query + "&key=" + apiKey
 
   axios.get(url).then(gbooks => { 
-    // gbooks.data will hold 10 items by default and so
-    // bookInfo will have a size of 10 as well
+   
     const bookInfo = gbooks.data.items.map(i => i.volumeInfo).map(info => (
       {
         title: info.title,
